@@ -1,0 +1,247 @@
+
+#portfolio{
+    margin: 0;
+}
+
+.cards-container-wrapper {
+  width: 100%;
+  overflow-x: hidden; /* Evita que el body tenga scroll extra */
+  background-color: #f8f9fa;
+  padding: 2rem 0;
+}
+
+/* Scroll horizontal */
+.cards-container-section {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* Scroll horizontal */
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 20px 40px;
+  scrollbar-width: thin; /* Firefox */
+  -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+}
+
+.cards-container-section::-webkit-scrollbar {
+  height: 8px;
+}
+
+.cards-container-section::-webkit-scrollbar-thumb {
+  background: turquoise;
+  border-radius: 10px;
+}
+
+.cards-container-section::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* Cada card */
+.card-before-after {
+  flex: 0 0 350px; /* tamaño fijo horizontal */
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Cada card */
+.card-before-after {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px !important;
+  overflow: hidden;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button{
+        margin-top: 10px !important;
+        padding: 10px 20px !important;
+        background-color: transparent;
+        color: var(--mainColor);
+        border: 1px solid var(--mainColor);
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+
+        &:hover{
+            background-color: var(--mainColor);
+            color: white;
+        }
+    }
+}
+
+.card-before-after .img{
+    width: 100%;
+    height: 490px;
+    object-fit: cover;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.card-before-after .text{
+    position: absolute;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
+    bottom: 0;
+    width: 100%;
+    padding: 10px !important;
+    display: flex;
+    flex-direction: column;
+
+    .user-text-data{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        text-align: start !important;
+    }
+
+    h3{
+        margin: 0 !important;
+        font-size: 1.4rem;
+        color: #ffffff;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.781);
+        margin-bottom: 5px !important;
+        font-weight: 600;
+    }
+    .category{
+        color: white;
+        font-size: 0.6rem;
+        font-weight: 500;
+        backdrop-filter: blur(5px);
+        background-color: rgba(255, 166, 0, 0.63);
+        padding: 2px 10px !important;
+        border-radius: 20px;
+    }
+}
+
+/*modal*/
+
+.before-after-modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    
+
+    .content{
+        background-color: #000000ad;
+        color: white;
+        padding: 20px !important;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 800px;
+        position: relative;
+
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em 0 !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+            h2{
+                margin: 0;
+            }
+            .close-btn{
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: var(--mainColor);
+                cursor: pointer;
+                padding: .2em .5em !important;
+                border-radius: 5px !important;
+                border: 1px solid var(--mainColor);
+            }
+        }
+
+
+        .main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1em;
+            margin-top: 1em !important;
+
+            img{
+                width: 100% !important;
+                height: 70vh !important;
+                object-fit: cover;
+            }
+            .carousel-inner {
+                width: 600px;
+                height: 70vh; /* el contenedor tambien con altura fija */
+                padding: 1em;
+            }
+
+            .modal-text{
+                width: 500px;
+            }
+        }
+    }
+}
+
+.open{
+    display: flex;
+}
+
+/* Corrige la posición de los indicadores para que no choquen con el texto */
+.before-after-modal .carousel-indicators {
+  position: absolute;
+  bottom: -18px; /* ajusta según prefieras */
+  z-index: 10;
+}
+
+/* Separa el texto debajo del carrusel */
+.before-after-modal .main .text {
+  margin-top: 1.5em;
+  text-align: center;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Evita que los indicadores y los captions colisionen en móviles */
+@media screen and (max-width: 768px) {
+    .before-after-modal .content {
+        width: 98%;
+        height: 100vh;
+        max-width: none;
+        overflow: auto;
+    }
+  .before-after-modal .carousel-caption {
+    bottom: 45px !important;
+  }
+
+  .before-after-modal .carousel-indicators {
+    bottom: 5px !important;
+  }
+
+  .before-after-modal .main .text {
+    margin-top: 2em;
+    padding: 0 1em;
+  }
+  .before-after-modal .carousel-inner {
+    width: 100% !important;
+    height: auto !important; /* altura automática en móviles */
+    padding: 0.5em;
+  }
+}

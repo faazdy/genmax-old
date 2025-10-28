@@ -1,0 +1,8 @@
+#mainNav {
+    background-color: #272727d7 !important;
+    backdrop-filter: blur(10px);
+}
+
+nav img{
+    height: 60px !important;
+}
