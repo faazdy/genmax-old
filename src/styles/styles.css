@@ -11008,6 +11008,19 @@ header .container-text .text-hero{
     margin-bottom: 4rem;
   }
 }
+
+@media (max-width: 767px) {
+  header .container-text .text-hero{
+    width: 100%;
+    padding: 0 1.5em;
+    align-items: center;
+    text-align: center !important;
+
+    .btn{
+      align-self: center;
+    }
+  }
+}
 #portfolio .portfolio-item {
   max-width: 26rem;
   margin-left: auto;

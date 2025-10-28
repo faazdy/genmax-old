@@ -10,8 +10,6 @@
 /*---------------------modules*/
 ul .timeline-image{
     border-radius: 50% !important;
-    width: 150px !important;
-    height: 150px !important;
     object-fit: cover !important;
 
     img{
